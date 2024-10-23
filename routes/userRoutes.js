@@ -1,8 +1,13 @@
-//fetching users
+
+const express = require('express');
+const router = express.Router();
+
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/User');
+
 const verifyAdmin = (req, res, next) => {
-    const token = req.headers['authorization'];
+    const token = req.headers['authorization'] && req.headers['authorization'].split(' ')[1];
 
     if (!token) return res.status(403).send('Token missing');
 
@@ -14,8 +19,8 @@ const verifyAdmin = (req, res, next) => {
     });
 };
 
-
-app.get('/users', verifyAdmin, async (req, res) => {
+//fetching users
+router.get('/users', verifyAdmin, async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     try {
@@ -32,7 +37,7 @@ app.get('/users', verifyAdmin, async (req, res) => {
 
 
 //update user
-app.put('/users/:id', verifyAdmin, async (req, res) => {
+router.put('/users/:id', verifyAdmin, async (req, res) => {
     const { name, email, role } = req.body;
 
     try {
@@ -45,7 +50,7 @@ app.put('/users/:id', verifyAdmin, async (req, res) => {
 
 
 //delete user
-app.delete('/users/:id', verifyAdmin, async (req, res) => {
+router.delete('/users/:id', verifyAdmin, async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
         res.json({ message: 'User deleted successfully' });
@@ -53,3 +58,5 @@ app.delete('/users/:id', verifyAdmin, async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 });
+
+module.exports = router;
