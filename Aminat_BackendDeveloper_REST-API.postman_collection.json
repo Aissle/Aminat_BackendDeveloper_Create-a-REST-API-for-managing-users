@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "3351e7f3-9cbd-4264-bc0c-c55f3277b15f",
+		"name": "Aminat_BackendDeveloper_REST-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30724031"
+	},
+	"item": [
+		{
+			"name": "http://localhost:6000/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"David\",\r\n    \"email\": \"david@example.com\",\r\n    \"password\": \"password12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"register"
+					]
+				},
+				"description": "POST request with no authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"david\",\r\n    \"email\": \"david@example.com\",\r\n    \"password\": \"password12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Post request with no authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6000/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThmYWM2MmEzN2VmYjY3ZTcwMTczYyIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzI5NjkwMzgzLCJleHAiOjE3Mjk2OTM5ODN9.QiROyogeYyIeWcdYizUI7priE9rhKNdjk0Cn-Ombs1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"caleb\",\r\n    \"email\": \"caleb@example.com\",\r\n    \"password\": \"password12345\",\r\n    \"role\": \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Post request from an admin"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6000/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThlNjNiZWUzZjM1ZjhhNjdmMjc0MiIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcyOTY5MDc4MCwiZXhwIjoxNzI5Njk0MzgwfQ.mEv1hwjZ7VKG2QyGDLctNekkNBEXPu5blDP6HwD7FJA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"caleb\",\r\n    \"email\": \"caleb@example.com\",\r\n    \"password\": \"password12345\",\r\n    \"role\": \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "GET request from Admin with authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6000/users/6718f9ea2a37efb67e701739",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThlNjNiZWUzZjM1ZjhhNjdmMjc0MiIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcyOTY5MDc4MCwiZXhwIjoxNzI5Njk0MzgwfQ.mEv1hwjZ7VKG2QyGDLctNekkNBEXPu5blDP6HwD7FJA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Daniel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/users/6718fac62a37efb67e70173c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"users",
+						"6718fac62a37efb67e70173c"
+					]
+				},
+				"description": "PUT request for user update with authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6000/users/6718fac62a37efb67e70173c",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MThlNjNiZWUzZjM1ZjhhNjdmMjc0MiIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcyOTY5MDc4MCwiZXhwIjoxNzI5Njk0MzgwfQ.mEv1hwjZ7VKG2QyGDLctNekkNBEXPu5blDP6HwD7FJA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"david@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/users/6718fac62a37efb67e70173c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"users",
+						"6718fac62a37efb67e70173c"
+					]
+				},
+				"description": "DELETE request with Authorization"
+			},
+			"response": []
+		}
+	]
+}
